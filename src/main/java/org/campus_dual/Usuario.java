@@ -31,23 +31,26 @@ public class Usuario {
             System.out.println("Has dejado de seguir a " + aux.nombre);
         }
     }
+    public void añadirPost(Post nuevo){
+        posts.add(nuevo);
+    }
 
    public void listarPosts(){
+       Post aux;
         Iterator <Post> it = posts.iterator();
-        while (it.hasNext()) {
 
-            System.out.println(it.next().toString());
+        while (it.hasNext()) {
+            aux = it.next();
+            System.out.println(aux.toString());
         }
     }
 
-    public void listarComentarios(ArrayList<Comentario> listaComentarios){
-        Iterator <Comentario> it = listaComentarios.iterator();
-        System.out.println("Comentarios de " + nombre);
+    public void listarComentarios(){
+        Iterator <Post> it = posts.iterator();
+
         while(it.hasNext()){
-            Comentario aux = it.next();
-            if(aux.propietario.nombre==nombre){
-                System.out.println(aux.toString());
-            }
+            it.next().listarComentarios();
+
         }
     }
 

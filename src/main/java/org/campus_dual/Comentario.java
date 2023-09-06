@@ -6,11 +6,13 @@ public class Comentario {
     protected String textoComentario;
     protected Date fechaComentario;
     protected Usuario propietario;
+    protected Post publicacion;
 
-    public Comentario(String texto, Date fecha, Usuario dueño){
+    public Comentario(String texto, Date fecha, Usuario dueño, Post publicacion){
         this.textoComentario= texto;
         this.fechaComentario = fecha;
         this.propietario = dueño;
+        this.publicacion=publicacion;
     }
 
     @Override
@@ -19,6 +21,7 @@ public class Comentario {
                 "textoComentario='" + textoComentario + '\'' +
                 ", fechaComentario=" + fechaComentario +
                 ", propietario=" + propietario.nombre +
+                ", publicacion=" + publicacion.id+
                 '}';
     }
 }
